@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LISIBILITÉ</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="stylesheet.css">
+</head>
+
+<body>
+    <h1 class="titre">LISIBILITÉ</h1>
+    <div class="bouton">
+        <a href="regles.html"><button id="btn-regles">RÈGLES</button></a>
+        <a href="indexjeu.html"><button>JOUER</button></a>
+        <button id="btn-credits">CRÉDITS</button>
+    </div>
+    <div id="overlay"></div>
+
+    <!-- FENÊTRE : RÈGLES -->
+    <div id="regles-box" class="box">
+        <span class="close-btn" data-close="regles-box">✖</span>
+        <h2>RÈGLES</h2>
+        <div class="carousel">
+            <img src="img/regles/regles_page-0001.jpg" class="active">
+            <img src="img/regles/regles_page-0002.jpg">
+            <img src="img/regles/regles_page-0003.jpg">
+            <img src="img/regles/regles_page-0004.jpg">
+            <img src="img/regles/regles_page-0005.jpg">
+        </div>
+        <div class="buttons">
+            <button onclick="prev()" class="btn-nav" style="color:#adffff">◀</button>
+            <button onclick="next()" class="btn-nav" style="color:#adffff">▶</button>
+        </div>
+    </div>
+
+    <!-- FENÊTRE : CRÉDITS -->
+    <div id="credits-box" class="box">
+        <span class="close-btn" data-close="credits-box">✖</span>
+        <h2>CRÉDITS</h2>
+        <p>Ce dispositif interroge la relation entre jeu physique et expérience numérique, et explore la manière dont la perception, le mouvement du corps et l’interprétation visuelle peuvent se combiner pour créer une interaction engageante et accessible à tous.<br><br>© Brioschi Victoria<br>Projet DNA - 2025/2026</p>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

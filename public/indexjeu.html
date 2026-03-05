@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LISIBILITÉ</title>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.9.0/lib/p5.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <link rel="stylesheet" href="stylejeu.css">
+    <link rel="stylesheet" href="stylesheet.css">
+</head>
+
+
+<body>
+
+    <div id="game"></div>
+
+<!-- message pour passer à la suite -->
+<div id="popup">
+    <div class="popup-box">
+        <div class="popup-title">BRAVO !</div>
+
+        <button class="btn" id="btn-continue">
+            CONTINUER À TROUVER LES PAIRES
+        </button>
+
+        <br>
+
+        <button class="btn" id="btn-enigme">
+            COMMENCER L'ÉNIGME DES CARTES
+        </button>
+    </div>
+</div>
+
+<script src="scriptgame.js"> </script>
+    
+</body>
+
+</html>
