@@ -39,7 +39,7 @@ overlay.addEventListener('click', () => {
     overlay.style.display = "none";
 });
 
-// === CAROUSEL : inchangé ===
+// === CAROUSEL===
 let index = 0;
 const images = document.querySelectorAll(".carousel img");
 

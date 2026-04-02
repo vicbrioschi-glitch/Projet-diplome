@@ -5,7 +5,6 @@ let video;
 let bodyPix;
 let segmentation;
 
-
 // Éléments DOM
 let revealedDiv;
 let statusDiv;
@@ -18,16 +17,39 @@ let btnProposer;
 let maskCanvas;
 let maskCtx;
 
+let bodySegmentation;
+const foreground_url = '../illu_background/' + msg.mot;
+const background_url_a = '../motifs/' + msg.mot + '-a.png';
+const background_url_b = '../motifs/' + msg.mot + '-b.png';
+let options = {
+  maskType: "person",
+};
+
+
+
+function preload() {
+  bodySegmentation = ml5.bodySegmentation("BodyPix", options);
+  foreground_image = loadImage(foreground_url);
+  background_image_a = loadImage(background_url_a);
+  background_image_b = loadImage(background_url_b);
+}
+
+
+
 // CONFIGURATION INITIALE
 function setup() {
-  // Créer un petit canvas (invisible, juste pour p5.js)
-  createCanvas(1, 1);
-  pixelDensity(1);
+   createCanvas(windowWidth, windowHeight);
+
+  video = createCapture(VIDEO);
+  video.size(windowWidth, windowHeight);
+  video.hide();
+
+  bodySegmentation.detectStart(video, gotResults);
   
   // Créer un canvas HTML pour le masque
   maskCanvas = document.createElement('canvas');
-  maskCanvas.width = 640;
-  maskCanvas.height = 480;
+  maskCanvas.width = windowWidth;
+  maskCanvas.height = windowHeight;
   maskCtx = maskCanvas.getContext('2d', { willReadFrequently: true });
   
   // Récupérer les éléments DOM
@@ -40,6 +62,7 @@ function setup() {
   
   socket = io();
   
+
   // Gestion de la proposition de mots
   btnProposer.addEventListener('click', proposerMot);
   motInput.addEventListener('keypress', function(e) {
@@ -143,6 +166,37 @@ function draw() {
     }
     return;
   }
+
+  function draw() {
+  clear()
+  
+  background(0, 0, 255); //bleu
+  
+  if (segmentation) {
+
+    // negative
+    const neg = segmentation.mask.filter(INVERT);
+    foreground_image.mask(neg);
+    // Display the image.
+    image(foreground_image, 0, 0);
+    foreground_image = loadImage(foreground_url);
+    
+    // Apply the mask to A.
+    background_image_a.mask(segmentation.mask);    
+    // Display the image A.
+    image(background_image_a, 0, 0, windowWidth / 2, windowHeight);
+    background_image_a = loadImage(background_url_a);
+    
+    // Apply the mask to A.
+    background_image_a.mask(segmentation.mask);    
+    // Display the image A.
+    image(background_image_a, windowWidth / 2, 0, windowWidth / 2, windowHeight);
+    background_image_a = loadImage(background_url_a);
+    
+    
+  }
+  
+}
   
   // Convertir le masque en image et l'appliquer comme CSS mask
   let maskDataURL = maskToDataURL(segmentation.mask);
