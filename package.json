@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js & sleep 1 && open http://localhost:5501"
+    "start": "node server.js & sleep 1 && open http://localhost:3000"
   },
   "keywords": [],
   "author": "",

@@ -1,12 +1,17 @@
-// server.js
-const express = require('express');
-const app = express();
-const http = require('http').createServer(app);
-const { Server } = require('socket.io');
 
-const io = new Server(http, {
-  cors: { origin: '*' }
-});
+
+// server.js
+var express = require("express");
+var app = express();
+
+const PORT = '3000';
+server = app.listen(PORT);
+console.log(`Node server is running on ${PORT}`);
+console.log('¯\\_(ツ)_/¯');
+
+var socket = require("socket.io");
+var io = socket(server);
+
 
 // On sert les fichiers du dossier "public"
 app.use(express.static('public'));
@@ -24,8 +29,3 @@ io.on('connection', (socket) => {
   });
 });
 
-// On démarre le serveur
-const PORT = 3000;
-http.listen(PORT, () => {
-  console.log('Serveur sur http://localhost:' + PORT);
-});
