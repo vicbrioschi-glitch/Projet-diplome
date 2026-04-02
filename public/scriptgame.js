@@ -1,4 +1,4 @@
-const symbols = ["chapeau","pinceau","pompier","fourmis","chalet","portefeuille","mortpion","cartable","rideau","départ","sirene","rateau","coussin","millefeuille","citron","boisson","bricole","poirreau","vernis","page"];
+const symbols = ["chapeau","pinceau","pompier","fourmis","chalet","portefeuille","mortpion","cartable","rideau","depart","sirene","rateau","coussin","millefeuille","citron","boisson","bricole","poirreau","vernis","page"];
 
 
 // Créer un deck avec toutes les combinaisons de symboles et variantes
