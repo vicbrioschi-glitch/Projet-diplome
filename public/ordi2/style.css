@@ -8,8 +8,8 @@
             width: 100vw;
             height: 100vh;
             overflow: hidden;
-            font-family: Arial, sans-serif;
-            background: linear-gradient(gray, red);
+            font-family: 'Paysage', sans-serif;
+            background: red;
             background-size: cover;
         }
         
@@ -36,14 +36,15 @@
         
         #status {
             position: fixed;
-            top: 20px;
-            left: 20px;
-            color: white;
-            background: rgba(0,0,0,0.7);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: rgb(173, 255, 255);
             padding: 10px 20px;
-            border-radius: 8px;
             z-index: 100;
-            font-size: 14px;
+            font-size: 20vh;
+            text-align: center;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; 
         }
         
         #debug {
@@ -55,12 +56,12 @@
             padding: 10px;
             border-radius: 8px;
             z-index: 100;
-            font-family: monospace;
             font-size: 12px;
             display: none;
         }
         
         #success {
+            font-family: 'Paysage', sans-serif;
             position: fixed;
             top: 50%;
             left: 50%;
@@ -97,40 +98,46 @@
             display: flex;
             gap: 10px;
             align-items: center;
+            font-family: 'Paysage', sans-serif;
         }
         
         #mot-input {
             padding: 15px 25px;
             font-size: 20px;
             border: none;
-            border-radius: 12px;
-            background: rgba(255,255,255,0.95);
-            color: #333;
+            border-radius: 50px;
+            background: rgba(255,255,255);
+            color: red;
             width: 300px;
             outline: none;
             box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            font-family: 'Paysage', sans-serif;
+            font-weight: 900;
+            
         }
         
         #mot-input::placeholder {
-            color: #999;
+            color: rgba(255, 0, 0, 0.3);
         }
         
         #btn-proposer {
             padding: 15px 30px;
             font-size: 18px;
-            font-weight: bold;
-            background: #4CAF50;
+            font-family: 'Paysage', sans-serif;
+            font-weight: 900;
+            background: red;
             color: white;
             border: none;
-            border-radius: 12px;
+            border-radius: 50px;
             cursor: pointer;
             box-shadow: 0 5px 20px rgba(0,0,0,0.3);
             transition: all 0.2s;
         }
         
         #btn-proposer:hover {
-            background: #45a049;
+            background: rgb(172, 255, 255);
             transform: scale(1.05);
+            color: rgb(255, 0, 0);
         }
         
         #btn-proposer:active {
@@ -142,3 +149,5 @@
             25% { transform: translateX(-10px); }
             75% { transform: translateX(10px); }
         }
+
+        
